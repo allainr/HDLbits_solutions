@@ -6,7 +6,7 @@
 
 module top_module
 (
-  	input   wire 					    clk,
+  	input   wire                        clk,
     input 						        load,
     input   wire    [255:0] 			data,
     output  wire    [255:0] 		    q 
