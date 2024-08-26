@@ -7,9 +7,10 @@
 module top_module
 (
   	input   wire                        clk,
-    input 						        load,
-    input   wire    [255:0] 			data,
-    output  wire    [255:0] 		    q 
+                                        load,
+    input   wire    [255:0]             data,
+
+    output  wire    [255:0]             q 
 ); 
 
     wire [255:0] next; 
@@ -59,17 +60,17 @@ endmodule
 
 module rule
 (
-    input wire					current,
-    input wire [7:0]	 		neighbors,
+    input   wire					current,
+    input   wire    [7:0]	 		neighbors,
     
-    output wire 				next
+    output  wire 				    next
 );
     
     wire [2:0] neighbor_count;
     always @(*) begin
-        neighbor_count = 	neighbors[7] + 
-        					neighbors[6] + 
-        					neighbors[5] + 
+        neighbor_count =    neighbors[7] + 
+                            neighbors[6] + 
+                            neighbors[5] + 
                             neighbors[4] + 
                             neighbors[3] + 
                             neighbors[2] + 
@@ -77,9 +78,9 @@ module rule
                             neighbors[0];   
         
         case(neighbor_count)
-        	2: 			next = current;    
-        	3: 			next = 1;
-            default: 	next = 0;
+        	2:              next = current;    
+        	3:              next = 1;
+            default:        next = 0;
         endcase
     end
 endmodule
